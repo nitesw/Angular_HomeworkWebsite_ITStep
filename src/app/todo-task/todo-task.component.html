@@ -1,0 +1,21 @@
+@if (task) {
+<li
+  [class.done]="task.isDone === true"
+  [class.important]="task.isImportant === true"
+>
+  {{ task.title }}
+  @if(task.deadline) {
+  <span class="deadline"
+    >{{
+      task.deadline.getDate() < 10
+        ? "0" + task.deadline.getDate()
+        : task.deadline.getDate()
+    }}.{{
+      task.deadline.getMonth() + 1 < 10
+        ? "0" + (task.deadline.getMonth() + 1)
+        : task.deadline.getMonth() + 1
+    }}.{{ task.deadline.getFullYear() }}</span
+  >
+  }
+</li>
+}
