@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ITask } from '../task';
 
 @Component({
@@ -11,4 +11,18 @@ import { ITask } from '../task';
 export class TodoTaskComponent {
   @Input()
   task?: ITask;
+
+  @Output()
+  onDelete = new EventEmitter<number>();
+
+  remove() {
+    this.onDelete.emit(this.task?.id);
+  }
+
+  markCompleted() {
+    if (this.task) this.task.isDone = this.task.isDone === true ? false : true;
+  }
+  markNew() {
+    if (this.task) this.task.isNew = this.task.isNew === true ? false : true;
+  }
 }

@@ -1,0 +1,8 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+form span {
+  font-size: 20px;
+}

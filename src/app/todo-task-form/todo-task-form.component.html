@@ -1,0 +1,19 @@
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <label>
+    <span>Title:</span>
+    <input type="text" required formControlName="title" />
+  </label>
+  <label>
+    <span>Deadline:</span>
+    <input type="date" formControlName="deadline" />
+  </label>
+  <label>
+    <span>Important:</span>
+    <input type="checkbox" formControlName="isImportant" />
+  </label>
+
+  <div>
+    <button type="reset" style="margin-right: 5px">Cancel</button>
+    <button type="submit">Create</button>
+  </div>
+</form>

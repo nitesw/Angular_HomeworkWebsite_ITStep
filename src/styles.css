@@ -15,11 +15,20 @@ ul.todo_list {
   overflow: hidden;
 }
 
-.todo_list app-todo-task li.important::before {
-  content: "!";
-  margin: 0 8px;
-  color: darkred;
+.complete-button {
   display: inline-block;
+  margin-right: 5px;
+}
+.new-button {
+  margin-right: 10px;
+}
+
+.todo_list app-todo-task li .important {
+  background-color: rgb(209, 90, 90);
+  color: white;
+  border-radius: 3px;
+  padding: 2px 4px;
+  margin-left: 5px;
 }
 
 .todo_list app-todo-task li .deadline {
@@ -27,12 +36,19 @@ ul.todo_list {
   color: white;
   border-radius: 3px;
   padding: 2px 4px;
+  margin-left: 5px;
+}
+.todo_list app-todo-task li .new {
+  background-color: rgb(62, 184, 97);
+  color: white;
+  border-radius: 3px;
+  padding: 2px 4px;
+  margin-left: 5px;
 }
 
 .todo_list app-todo-task li {
   padding: 12px;
   padding-left: 40px;
-  list-style: inside url(../public/square.svg);
 }
 
 .todo_list app-todo-task li:hover {
@@ -40,17 +56,15 @@ ul.todo_list {
   cursor: pointer;
 }
 
-.todo_list > app-todo-task > li:nth-child(even) {
-  background-color: rgb(174, 216, 229);
+.todo_list .todo-task:nth-child(odd) {
+  background-color: rgb(167, 125, 199);
+}
+.todo_list .todo-task:nth-child(even) {
+  background-color: rgb(215, 180, 242);
 }
 
-.todo_list > app-todo-task > li:nth-child(odd) {
-  background-color: rgb(51, 138, 168);
-}
-
-.todo_list app-todo-task li.done {
-  background-color: rgb(226, 226, 226);
-  list-style: inside url(../public/check-square.svg);
+.todo_list .todo-task.done {
+  background-color: rgb(207, 189, 219);
   text-decoration: line-through;
   text-decoration-thickness: 2px;
 }

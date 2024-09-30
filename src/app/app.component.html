@@ -1,7 +1,17 @@
 <h1>My To Do List</h1>
 
+<div style="margin-bottom: 10px">
+  <button style="margin-right: 5px" (click)="sortByDeadline()">
+    Sort by deadline
+  </button>
+  <button (click)="sortByPriority()">Sort by priority</button>
+</div>
+
 <ul class="todo_list">
   @for (task of tasks; track $index) {
-  <app-todo-task [task]="task"></app-todo-task>
+  <app-todo-task [task]="task" (onDelete)="deleteItem($event)"></app-todo-task>
   }
 </ul>
+
+<h2 style="margin-bottom: 5px">Create New Task</h2>
+<app-todo-task-form (onCreate)="createTask($event)"></app-todo-task-form>

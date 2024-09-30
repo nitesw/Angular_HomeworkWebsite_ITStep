@@ -1,21 +1,44 @@
-@if (task) {
-<li
-  [class.done]="task.isDone === true"
-  [class.important]="task.isImportant === true"
->
-  {{ task.title }}
-  @if(task.deadline) {
-  <span class="deadline"
-    >{{
-      task.deadline.getDate() < 10
-        ? "0" + task.deadline.getDate()
-        : task.deadline.getDate()
-    }}.{{
-      task.deadline.getMonth() + 1 < 10
-        ? "0" + (task.deadline.getMonth() + 1)
-        : task.deadline.getMonth() + 1
-    }}.{{ task.deadline.getFullYear() }}</span
-  >
-  }
+@if (task){
+<li class="todo-task" [class.done]="task.isDone === true">
+  <div style="display: flex; justify-content: space-between">
+    <div>
+      <div style="display: inline-block; border-right: 1px solid black">
+        <button class="complete-button" (click)="markCompleted()">
+          @if (task.isDone) {
+          <i class="bi bi-check-square"></i>
+          } @else {
+          <i class="bi bi-square"></i>
+          }
+        </button>
+        <button class="new-button" (click)="markNew()">
+          @if(!task.isNew){ Mark new } @else { Unmark new }
+        </button>
+      </div>
+
+      {{ task.title }}
+      @if(task.deadline) {
+      <span class="deadline"
+        >{{
+          task.deadline.getDate() < 10
+            ? "0" + task.deadline.getDate()
+            : task.deadline.getDate()
+        }}.{{
+          task.deadline.getMonth() + 1 < 10
+            ? "0" + (task.deadline.getMonth() + 1)
+            : task.deadline.getMonth() + 1
+        }}.{{ task.deadline.getFullYear() }}</span
+      >
+      } @if(task.isNew) {
+      <span class="new">New</span>
+      } @if(task.isImportant){
+      <span class="important">Important</span>
+      }
+    </div>
+    <div>
+      <button class="trash-btn" (click)="remove()">
+        <i class="bi bi-trash"></i>
+      </button>
+    </div>
+  </div>
 </li>
 }
