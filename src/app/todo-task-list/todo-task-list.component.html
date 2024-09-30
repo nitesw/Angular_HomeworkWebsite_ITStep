@@ -1,0 +1,18 @@
+<div style="margin-bottom: 10px">
+  <input type="text" />
+  <button style="margin-left: 5px" (click)="sortByDeadline()">
+    Sort by deadline
+  </button>
+  <button style="margin-left: 5px" (click)="sortByPriority()">
+    Sort by priority
+  </button>
+</div>
+
+<ul class="todo_list">
+  @for (task of tasks; track $index) {
+  <app-todo-task [task]="task" (onDelete)="deleteItem($event)"></app-todo-task>
+  }
+</ul>
+
+<h2 style="margin-bottom: 5px">Create New Task</h2>
+<app-todo-task-form (onCreate)="createTask($event)"></app-todo-task-form>
