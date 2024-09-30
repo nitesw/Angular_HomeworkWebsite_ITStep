@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { TodoTaskComponent } from '../todo-task/todo-task.component';
 import { TodoTaskFormComponent } from '../todo-task-form/todo-task-form.component';
-import { ITask, TASKS } from '../task';
+import { ITask } from '../task';
+import { TodoTaskService } from '../services/todo-task.service';
 
 @Component({
   selector: 'app-todo-task-list',
@@ -11,7 +12,14 @@ import { ITask, TASKS } from '../task';
   styleUrl: './todo-task-list.component.css',
 })
 export class TodoTaskListComponent {
-  tasks: ITask[] = TASKS;
+  tasks: ITask[] = [];
+
+  constructor(private taskService: TodoTaskService) {
+    taskService.getAllTasks().subscribe((data) => {
+      console.log(data.todos);
+      this.tasks = data.todos;
+    });
+  }
 
   sortByDeadline() {
     this.tasks.sort((a, b) => {

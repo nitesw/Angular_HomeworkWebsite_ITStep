@@ -1,10 +1,10 @@
 @if (task){
-<li class="todo-task" [class.done]="task.isDone === true">
+<li class="todo-task" [class.done]="task.completed === true">
   <div style="display: flex; justify-content: space-between">
     <div>
       <div style="display: inline-block; border-right: 1px solid black">
         <button class="complete-button" (click)="markCompleted()">
-          @if (task.isDone) {
+          @if (task.completed) {
           <i class="bi bi-check-square"></i>
           } @else {
           <i class="bi bi-square"></i>
@@ -13,9 +13,13 @@
         <button class="new-button" (click)="markNew()">
           @if(!task.isNew){ Mark new } @else { Unmark new }
         </button>
+        <button class="important-button" (click)="markImportant()">
+          @if(!task.isImportant){ <i class="bi bi-arrow-up"></i> } @else {
+          <i class="bi bi-arrow-down"></i> }
+        </button>
       </div>
 
-      {{ task.title }}
+      {{ task.todo }}
       @if(task.deadline) {
       <span class="deadline"
         >{{

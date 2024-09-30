@@ -4,3 +4,26 @@
   border-radius: 5px;
   background-color: lightcoral;
 }
+
+.complete-button {
+  margin-right: 5px;
+}
+.new-button {
+  margin-right: 5px;
+}
+.important-button {
+  margin-right: 10px;
+}
+
+:host:nth-child(odd) .todo-task {
+  background-color: rgb(167, 125, 199);
+}
+:host:nth-child(even) .todo-task {
+  background-color: rgb(215, 180, 242);
+}
+
+.todo-task.done {
+  background-color: rgb(80, 66, 89);
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}

@@ -21,8 +21,8 @@ export class TodoTaskFormComponent {
   constructor(private formBuilder: FormBuilder) {
     this.taskForm = this.formBuilder.group({
       id: [0, Validators.required],
-      title: ['', Validators.required],
-      deadline: [Date, Validators.required],
+      todo: ['', Validators.required],
+      deadline: ['', Validators.required],
       isImportant: ['', Validators.required],
       isDone: [false, Validators.required],
       isNew: [true, Validators.required],

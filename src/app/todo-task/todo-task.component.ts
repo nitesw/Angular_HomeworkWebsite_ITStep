@@ -20,9 +20,14 @@ export class TodoTaskComponent {
   }
 
   markCompleted() {
-    if (this.task) this.task.isDone = this.task.isDone === true ? false : true;
+    if (this.task)
+      this.task.completed = this.task.completed === true ? false : true;
   }
   markNew() {
     if (this.task) this.task.isNew = this.task.isNew === true ? false : true;
+  }
+  markImportant() {
+    if (this.task)
+      this.task.isImportant = this.task.isImportant === true ? false : true;
   }
 }
